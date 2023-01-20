@@ -17,6 +17,8 @@ pipeline {
             steps {
                 echo 'Deploying..'
                 // Insert your deploy steps here (e.g. running scripts to deploy to a server)
+                // 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
+                echo "added "
             }
         }
     }
