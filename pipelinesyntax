@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                // Insert your build steps here (e.g. running make, maven, gradle)
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                // Insert your test steps here (e.g. running unit tests)
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying..'
+                // Insert your deploy steps here (e.g. running scripts to deploy to a server)
+            }
+        }
+    }
+}
