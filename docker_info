@@ -1,0 +1,59 @@
+sudo docker --version  : to check the docker version
+sudo docker images     : to list all the images 
+sudo docker ps         : to list the running continers in docker 
+sudo docker ps -a      : to list all the stopped and running continers
+sudo docker rm         : to remove any container
+sudo docker stop <container name> : to stop any running container
+sudo docker start <contaienr name > : to start any running container
+sudo docker inspect <container name> : to get the details of any container 
+sudo docker run -it <image name >   : to run any image in the docker with interactive mode  
+sudo docker pull <image name>   : to pull any image form the registry or docker hub
+sudo docker build <image name > . : to build any image in the working directory
+sudo docker volume ls             : to list all the volume avilable in the docker 
+sudo docker volume create <volume name> : to create a new volume in the docker
+sudo docker volume inspect <volume name> : to get the details of the volume 
+sudo docker exec <container name > <command that you want to run > :
+
+    we can attach the volume to any contanier ,we can attach while starting of the container or 
+    while running the container also we  can add the volume. 
+    syntax :
+        sudo docker run -it -d --name <container name>  -v <volume name>  <image name>   : this is while running any image 
+
+        sudo docker run --name democont -p 8888:8080 mytomcat :  while running docker file and with change in the port number
+
+sudo docker network ls            : to  list all the networks in docker 
+sudo docker network create <network name> : to create any network in the docker 
+      -if we didn't mention any driver name by default it will take bridge network 
+      - we have types of networks in docker :
+          -bridge network
+          -host network
+          -overlay network
+          -macvlan network
+      - basic syntax to create a network :
+          " sudo docker network create --driver host --name guna "
+          this will create a network named guna in host  
+
+
+Docker networking are:
+
+Bridge network: This is the default network type for Docker, which allows containers to communicate with each other and 
+with the host machine over a shared network bridge. Each container on the bridge network is assigned a unique IP address, 
+and can communicate with other containers on the same network by their container name. This type of network is suitable 
+for most use cases, such as web applications, databases, and microservices.
+
+Host network: In this mode, the container is attached to the host network interface directly, and it uses the IP address 
+of the host machine. This means the container and the host share the same network stack, and the container has access to 
+all the network interfaces of the host machine. This mode is useful when you want to give your container access to the host machine’s network.
+
+Overlay network: This type of network enables communication among containers across multiple Docker hosts. 
+It uses the VXLAN protocol to create a virtual network that spans across multiple hosts, allowing containers 
+to communicate as if they were on the same network. This type of network is suitable for applications that 
+run across multiple hosts, such as container orchestration tools like Docker Swarm and Kubernetes.
+
+Macvlan network: This mode allows you to assign a MAC address to a container, making it appear as a 
+physical device on the network. This enables you to run containers on the same network as other 
+physical devices, and is useful when you need to give your container direct access to the network.
+
+None network: This is a special network mode that disables networking for a container. 
+In this mode, the container has no network access, and is only useful for running containers 
+that don't need network connectivity, such as batch jobs.

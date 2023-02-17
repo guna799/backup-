@@ -1,0 +1,22 @@
+Some basic linux commands :
+
+ls -    : list files and directories in the current directory
+cd -    : change the current working directory
+pwd -   : print the current working directory
+mkdir - : create a new directory
+rmdir - : remove an empty directory
+cp -    : copy files and directories
+mv -    : move or rename files and directories
+rm -    : remove files and directories
+touch - : create a new empty file or update the timestamp of an existing file
+cat -   : concatenate and display files
+less -  : display the contents of a file one page at a time
+grep -  : search for a pattern in a file or output
+find -  : search for files and directories that match certain criteria
+ps -    : display information about running processes
+top -   : display information about system resources and running processes
+chmod - : change the permissions of a file or directory
+chown - : change the owner of a file or directory
+tar -   : create or extract a compressed archive of files and directories
+gzip -  : compress or decompress files using the gzip format
+ssh -   : connect to a remote server using the secure shell protocol.
