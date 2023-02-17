@@ -1,0 +1,9 @@
+    ---challenges for today ---
+--------------------------------
+
+What is ngnix.?
+How to install ngnix.?
+What is virtual host file.?
+How to write virtual configuration with ngnix ?
+What is server block configuration ?
+How to write server block configuration?
