@@ -1,0 +1,414 @@
+jenkins demo:
+----------------------
+life before jenkins:
+1.irregular commits
+2.issues in integration
+3.delay in testing
+4.delay in release of software
+
+------------------------------
+before developers had to wait till the entire software code was
+built and tested to check for errors
+
+due to this software delivery proces was slow
+
+------------------------------------------------------------
+what is jenkins...?
+jenkins is a continous integration tool that allows continous development
+test and deployment of newly created codes
+
+Installations:
+jdk latest version
+jenkins 
+
+
+after installation we can run the jenkins on standlone server
+jenkins comes with the inbuild server
+
+but we can use jenkins with tomcat also
+using jenkins in tomcat server is to run all the applications on same server
+
+for this advantage we use jenkins in the tomcat server
+
+after installing the tomcat ,we can run jenkins in both stanalone and tomcat server
+
+if we create a job in standlone and then we create a job in tomcat server both the jobs can be seen in tomcat server
+
+now we need to change the jenkin to home directory:
+reasons behind that is:
+when ever it is required we have to install more plugins so that we need more disk space for that
+
+
+mange users in the jenkins:
+by default we are using the admin login
+from admin login we can create the new users 
+in jenkins dashboard u can find the manage jenkins click on it
+all the options for managing jenkins you will find and 
+click on the mange users 
+there you can create new users with user name and password 
+
+what all the jobs are there in the jenkins you can find in both the users
+
+
+after creating the users you can configure the users
+on the side of your profile you can find configure option
+there you can see all the information and 
+if it is needed you can update the information
+
+you can dispaly a message on the top of the welcome page 
+In that we can use the html for that message.
+
+here we can create and manage the roles in jenkins:
+for that we need one plugin called :roles based strategy plugin
+
+this plugin can be dowloaded directly form the google or in dashboard >in manage jenkins >manage plugins 
+there we can downlaod the requried jenkins and use it.
+after download ,install and restart the jenkins
+
+
+---------------------------------------------------------------------
+admin can manage the roles and can give access to limited resources
+
+for that click on the manage jenkins>configure gloabal security > click on authorisation> 
+there we can find roles based stratagy 
+only after installing and restart of the jenkins we can find that option
+ 
+once that is done
+try to logout with admin adn
+login using user details
+you will find a pop up showing some read controls denaied
+
+for that only admin can give access to required roles and manage them
+in manage jenkins >manage and assign roles > there you can Add users and manage the persmissions
+
+by default you can find global role,project role and slave role 
+now it was updated to   golbal role,item role and  node role.
+
+
+in global role we can add the users and assign them as employee
+in item role we can have different roles like tester ,devloper.
+so that we can assgin different item role for the different users 
+ther is option called pattern where we can have the feature like "dev.*" for the project starting with dev can access to all the developers.
+same like that we have can create "test.*" so that all the projects starting with test can be assigned to tester assignees
+
+from now :
+we only tester can access the testing projects and
+only developer ca have access to the develope projects
+in that also we can manage the persmissions like read write and create.
+
+this is how create users and manage users in the jenkins.
+
+----------------------------------------------------------------
+to know bsic commands in configure jenkins :
+
+there you can see the system message :where we can have some random message and it will display that in the home page
+for that we have html type and plain text type
+
+next option is  excutors: at max how many number of jobs can be done at a time.
+if we give there we can run max of 5 jobs at a time
+
+lables in the configure : when we create the new machine and the we have to give labels to the created macine
+ 
+so that all the machines with that lable can access 
+
+quiet period: as soon as the code committed in the build and the it will automactically trigger the jenkins
+
+so that it should have some sleep time between the code commited and it triggers the jenkins the time we give it will schedule the trigger.
+by experience we come to know that how much time our code will take from code commits and jenkins to build the jenkins
+
+SCM Check out: after build triggred our jenkins try to connect with the source code in the git or any platform 
+if it fails to connect with the source code , how many no of times should jenkins try to connect
+what number we will give that many no of times it will try to connect with source code
+
+restrict project naming:
+by default it will be on the 
+
+
+defaul option we can change to role based stratigy or name pattern
+
+if we select name pattern ,then
+we have to name any new project with that pattern only
+if we try to give any other patterns it will not take 
+it will throw an error showing no patterns with the name
+----------------------------------------------------------------------------
+configure different options in jenkins:
+
+we can see different options like:
+general,source code repository,build triggers,build setup,postbuild actions.
+
+in general : we hava discrption 
+in respository : git 
+in build triggers :If an organization would like to have a CI/CD pipeline setup using plain Jenkins. They will have the build triggers to trigger downstream projects such as
+
+Integration tests
+Code scans
+Performance Tests
+End to End Tests
+Deployment.
+
+in build triggers we have options like:
+trigger builds remotely
+build after other pojects are built
+build periodically
+poll SCM -source code management
+
+
+as of now we will se build periodically 
+
+
+-------------------------------------------------------------
+download and install git
+to create a master branch we use git init 
+it will automatically create a master branch in the location
+using git status we can see the current status of the git
+
+
+
+git commands:
+------------------
+git init     	        : to initilise the master branch
+git status      	: to know the current status of the branch
+git add         	: to add any files to the git
+git commit -m"message"  : to commit the newly changed files to the git
+
+
+git remote add origin "your repo https link"  : this willl add you git repository to the local repository
+after add and commit we have one more command
+
+git push -u origin master : this will push all the new committs to the master branch in the git repo
+
+git log               : it will show all the process done till now and discription 
+git --help            :it will show all the git commands with the discription
+
+---------------------------------------------------------
+integration with git:
+
+create a folder in local machine
+create a java or txt file 
+
+now we can add this file to our git repo
+using git commands 
+initially we have to create a empty repo in the git account
+for that we have  ---"git inti"
+it will ask for the credientials and it will save
+the files in our local machine can be uploaded inthe repo
+using git command called "git remote add origin your repo https link
+
+after adding the file 
+commit the file
+after all the commits we have to push the file to our repo'
+so that it will reflect there
+once its donegit
+we can now connect the jenkins and git 
+for that we have to provide the repo link while creating the job
+during then new job we can give repo link 
+and shell scripts commands for that file in build section
+
+once build is done
+we can see the build status in the jenkins
+-------------------------------------------------------------------------
+addding credientials to the jenkins
+we can add using the credientials plugin 
+if we are not having that
+we can download it from the manage plugins
+in avilable we can search and download
+if we restart the jenkins it will update the jenkins
+
+
+------------------------------------------------------------------
+intro to CATLIGHT:
+
+faced some issue while installing 
+
+catlight is the status indicator for the task in jenkins
+
+it will notify the status of the task once it is built or it is completed
+
+catlight is used by many automation tools
+
+as we are using the jenkins we will use catlight for the status indicator
+-------------------------------------------------------------------------
+what is automated deployment..?
+we have 4 main phases in the deployment
+build 
+deploy
+test
+release
+
+
+all the jobs are chained in a continous integrated system 
+
+the process involved in deployment:
+at first the developers develop some code and they committ the code 
+to repos in our case we are using git
+once the commits are done in the git 
+we build the committs in the jenkins 
+if the build is success then it produce the war or ear files we call it as artifcats
+
+after successfully build we deploy the code and
+test the code
+depending on the organisation we have different test environments
+in jenkins the artifacts are sent to some automated test environments in the jenkins hobs
+that is test jobs
+once it is success 
+it willl go to the production environment
+that is release.
+
+
+how to send email form jenkins:
+---------------------------------
+login to jenkins
+mangae jenkins
+configure system
+after scrolling down we can find email notification
+where we need to provide smtp 
+smtp.@gmail.com
+we need to enter gmail and password for that
+we can test the action 
+if we come across any errors it will show there
+we have to resolve using our google account 
+once it is done we can use the gmail for the notification
+
+
+------------------------------------------------
+what is pipeline in jenkins:
+
+a pipeline is a workflow with group of events or jobs that are 
+chained and integrated with each other in sequence.
+
+every job in a pipeline has some dependancy on one or more other
+jobs.
+
+for every pipe there is inlet and outlet like that
+
+for every job we have inlet and out let
+and we have different kind of actions are there once one job is done
+combining all the jobs in the build is pipline
+
+lets create 3 jobs 
+all 3 jobs are running successfully
+now we have to chain all 3 jobs
+
+now we have concept of upstream and down stream
+upstream will trigger new task
+downstream means it will be triggred as the task
+
+now we have to cofigure the jobs in the chain
+we have to start the new job after first job so in configure options
+there will be post build options
+once it is sucessfull we have to wake up the new job 
+so we have to give the name of another job in advanced options
+for second job in configure options there is build triggers
+there we have to select build after other projects are build
+there we have to give the name of the project which it should watch
+so that once it is build successfull
+then 2nd project will automatically start build
+for the 3rd job also same 
+in build triggers we have to give the name of the file which
+it should look after
+once that project is buld successfull then it will start the new build.
+-------------------------------------------------------------------------------------------
+How to trigger the job form email notification
+
+create a freestyle job in home page.
+in configure options
+before that we have to download new plugin called poll emailer 
+after that it wil come in the configure options.
+we have to give the mail and password in the that field 
+test the connection 
+
+if everything is good it will work fine
+
+in advance options we can add the subject so that when ever any mail is comming with that subject
+then it will trigger the job in jenkins
+
+advantage is without opening the jenkins also we can trigger the job in jenkins
+
+-------------------------------------------------------------------------------
+How to view buil monitor view   ?
+
+it is basic plugin that needs to be installed in the jenkins
+
+once it is downloaded in the jenkins
+we can see the view in the top of the jenkins home screeen
+add the view  as build monitor view 
+give the name fo the of build monitor 
+click on create
+it will redirect you to configure options of the build monitor of the jenkins
+there we we can configure the opions like
+how much text scale of the job 
+colour of the job 
+how many jobs in the row 
+
+in that we can see different colours indicating different stages of the build
+we can see the when was the last build of the project all the info we can see there
+
+---------------------------------------------------------------------------------------------
+how to install jenkins on amazon ec2 linux 
+
+will see this while learning aws
+
+as of now not reqired and skip this
+----------------------------------------------------------------
+
+
+what is jenkins pipeline..?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+plugins used up to now:
+--------------------------
+Build pipeline plugin
+credientials plugin
+delivery pipeline plugin
+deploy to container plugin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+need clarificatons on :
+----------------------
+regrding the port of tomcat
+installation of catlight  in vm
+running java file in local machine whiel build
+
+
+

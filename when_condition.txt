@@ -1,0 +1,7 @@
+when condition in pipeline scripting:
+----------------------------------
+excution of pipeline stages can be controlled with conditions.
+these condition must be defined in the when block with in each stage.
+each block must contain at least one condition,
+if more than one condition is declared in the when block,all conditions should return true for
+that stage being executed.

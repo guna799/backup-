@@ -1,0 +1,118 @@
+linux shells:
+a shell is an environment in which we can run our commands,programs,and shell scripts.
+it gathers input form the you and excute programs based on that input.
+when a program finihes excuting ,it displays that programs output
+
+
+
+types of shells:
+
+Bourne shell(sh)
+korn shell
+bourne again shell
+POSIX Shell
+c shell
+tenex/TOPS C Shell
+
+-------------------------------------------------------------------------------
+the shebang
+#!/bin/bash
+
+for comments # is used 
+in the script we can metion the author of the script.
+
+in order to select all the file it the dir we can use '*' 
+
+---------------------------------------------------------------------
+varibles :
+let a=34
+let name="guna"
+for print command used id echo
+echo "this is guna"
+
+echo "the value of a is :$a"
+we use '$' for printing the value
+
+we have set of rules for the varibles
+should not start with the _
+no special symobls are used  in varibles
+----------------------------------------------------------------
+loops in the shell script:
+
+loops are used to repeate any set of commands repetedly.
+
+types of loops:
+1.the while loop
+2.the for loop
+3.the until loop
+4.the select loop
+
+
+syntax for while loop:
+
+while [condition]
+do
+---------|
+---------|these are loop statemnts 
+---------|
+done
+-------------------------------------
+
+syntax for the for loop:
+
+for i in 1 2 3 4 5 6
+do
+----------
+----------   these are the loop statements that get iterated
+----------
+done 
+
+this loop will iterate for 6 times
+
+-------------------------------------
+other synatx of "for loop"
+----------------------------------
+for i in {1..10}
+do
+--------------  
+-------------         these are the loop statements 
+-----------------
+done
+
+this loop will iterate fo 10 times
+--------------------------------------------------------
+in shell script we can use the syntax of c language
+
+syntax:
+
+for ((exp;exp;exp))
+do
+---------
+---------   statements
+---------
+done
+
+example:
+
+for((k=0;k<10;k++))
+do
+----------
+---------   statements
+---------
+done
+ 
+
+this loop will iterate for 10 times
+
+
+
+
+
+
+
+to alter loops statements ,commands used are :
+break and continue
+
+synat
+
+ 

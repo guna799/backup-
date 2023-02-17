@@ -1,0 +1,205 @@
+Birth of linux..
+------------------
+in 1969 they created c programming language and unix os
+
+Basically linux was the kernal ,not operating system in the beginning
+
+unix is mother of the linux 
+as unix is the open source collaboration it has more growth
+and commercial sale of Unix.
+
+
+in 1980's :
+companies came up with developing their own unix-IBM(AIX)
+
+in 1990's:
+the linux source code was online and any one can use it 
+then it was collaborated with GNU and became the OS
+
+
+VARIOUS LINUX DISTRIBUTIONS:
+-----------------------------
+1.red hat enterprise linux-- it is the most used and most popular due to stable and relaible centOS
+2.fedora--
+3.debian--ubuntu  free and open source not commercial any one can come and work on it
+4.others
+
+ubuntu is the 3rd most used os in the present world,
+
+Linux's features (in comparing with mac and windows):
+----------------------------------------------------
+-simplified updates for all installed versions
+-free software licensing
+-access to source code
+-multiple distrbutions
+-better malware protection (main feature of the linux)
+
+
+in linux we have root directory.
+form the file system we can access all the files in the root directory
+
+/ -- it indicates we are in the root directory.
+
+whenever we download any softwares in the linux it will be downloaded in the bin directory.
+
+linux provide CLI (command line interface) to communicate with the os
+CLI is better for tasks which cannot performed with GUI
+
+Hansd on:Linux commands:
+-----------------------
+1.pwd (present working directory) --it will show the current directory
+2./ root directory
+3.ls - it will list down all the directories in the current directory
+4.cd -- change directory --(cd fileName).
+5.clear - it will clear all thecommands in CLI or we can use "ctrl+l" to clear the screen 
+6.cd ..  -- it will go back to the previous directory
+7.cd   -- it wil go back to the home directory
+8.from home we want directly go to the destination directory we can use the path 
+eg. :cd Desktop/file1/welcome.txt   (we can use tab to autofill the path of the file)
+
+
+9.echo -- command used to write arguments to standard output
+10.su --used to switch to root user
+11 su username --used to switch to a different user
+12.sudo -- excutes only that command with root/user privileges
+
+-----------------------------------
+
+working with directories :"ls" commands
+----------------------------------------
+ls path   :by specifying the path after ls,the content in that path will be displayed
+ls -l     :using "l" flag, lists all the contents along with its owner settings ,permissions and time stamp
+ls -a     :using "a" flag ,lists all the hidden contents in the specified directory
+ls --author:using :-author" flag ,lists the contents along with its owner
+ls -S      : using "-S" flag, ,sorts and lists all the contents in the specified directory by size
+ls *.html   : it lists only the contents in the directory of a prticular format
+
+
+
+---------------------------------------------------------------------------
+working with "cd" directories commands:
+------------------------------------------
+cd ~     :this command also changes the directory to home directory
+cd /     :this command changes the directory to root directory
+cd ..    :chaanges the directory to parent directory
+cd "xx yy": changes the directory to file name directory
+
+
+---------------------------------------------------------------------
+working with files : 'cat' command
+-------------------------------------------------
+cat    :this is used to display the content of text files and concatenate several files into one
+cat -b  :this is used to add line numbers to all the non blank lines
+cat -n  :this is used to add line numbers to all lines
+cat -s  :this is used to squeeze blank lines to one line
+cat -E  :show the end of the line
+
+cat >file_name  : it will ask to enter the data in the file and it will save the file with given file name
+	have to enter which type of the file it is..
+ctrl+D will help you to come back to the command line
+until that what all the lines are written in the terminal will save that in the files
+
+cat file1 file2 it will show all the contents in both the files
+
+cat file1 >> file2 : it will copy the contents of file1 into file2 
+  it will add file1 content to file2
+
+-----------------------------------------------------------------
+working with "grep command:
+--------------------------------
+grep "string"(that you want to search) file_name:
+	this will search for the given string in the document or file
+grep -i "string" :will search for the given string with case senstive
+
+grerp -n "string" :will search for the string and give the line number also
+
+grep -v :this will return the lines not matching the search string
+
+grep -c :this will return the number of lines which results matched search string
+
+--------------------------------------------------------------------------------
+working with "sort" commands:
+----------------------------------
+sort file_name : sorts the content of the file and return them in alphabetical order
+sort file1 file2 :sort content of the both file1 and file2
+sort -r file1: it will retrun the content in reverse order
+sort -f  :flag 'f' dose case insensitive sorting.
+sort -n    :sorts the content as per the numerical order
+--------------------------------------------------------------------
+working with '|' commands
+-------------------------
+the pipe command is used to output the result of one command as input to another command.
+'|" with help of pipe command we can perform the two operations in same command
+---------------------------------------------------
+
+working with files and directories on 'cp':
+------------------------------------------------------------
+
+" cp [options] source destination" 
+
+cp      :this command is used to copy files and directoires
+cp -i   :enter interactive mode ; CLI asks before overwriting files
+cp -n   :does not overwright the file
+cp -u   :updates the destination file only when source file is different from destination file
+cp -R   :recursive copy ;copies even hidden files
+cp -v   :verbose ; prints informative messages
+
+---------------------------------------------------------------------
+woriking with 'mv' command
+----------------------------------------
+mv source destinatio
+mv this command is used to move files and directories
+-------------------------------------------------
+working with mkdir command:
+---------------------------------------
+mkdir   :this command is used to create new directory
+
+mkdir -p :this command creates both a new parent directory and sub directory
+
+mkdir --parents :same a -p
+
+----------------------------------------------------
+
+working with rm and rmdir commands:
+-------------------------------------------
+rmdir    :this command is used to remove the specified directory
+rmdir -p  : removes both parent and child directory
+rm -r     :removes even non empty directories
+rm -rp    :removes non empty directoires including parent and subdirectories
+
+-----------------------------------------------------
+working with user persmissons : 'r' ,'w',&'x'
+------------------------------------------------
+on clicking the ls command we can see all the files in the dir
+with ls -l   :it returns all the files with all the details of the file
+
+******check word file for the content here*****
+
+
+
+-----------------------------------------------------------------
+working with user permissions :'r','w''x':
+--------------------------------------------
+
+
+chmod :to change the access permissions of files and directories
+chown :to change the owner of files and directoires
+chgrp  :to change the group ownership of file and directories
+
+
+
+
+
+
+
+
+
+
+
+
+Doubts to ask:
+--------------
+1.In ls command :ls -author and autor both are working with same funtion
+2.
+
+
