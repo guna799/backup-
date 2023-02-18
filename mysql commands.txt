@@ -1,0 +1,127 @@
+
+
+SHOW SCHEMAS;
+
+USE ;
+
+SELECT * FROM USERS;
+
+
+DESC TABLES;
+
+################FOR SPECIFIC USERS########
+
+SELECT USER_ID FROM USERS WHERE USER_ID='perf0089';
+
+TO CHECK EXTERNAL USER:-
+
+SELECT EXTERNAL_MEMBER_ID FROM USERS WHERE EXTERNAL_MEMBER_ID='zcarenavigator12';
+
+
+
+SELECT PRIMARY_PHYSICIAN_ID, PROVIDER_ID FROM RPM_MULTIPLE_PROVIDERS WHERE PATIENT_ID ='amyeric1';
+
+
+INSERT INTO RPM_MULTIPLE_PROVIDERS(`ID`,`PROVIDER_ID`,`PRIMARY_PHYSICIAN_ID`,`PATIENT_ID`) VALUES(3688,'Vincentjoe1','care_navigator2','sandrasharon1@collaborate.com');
+
+
+SELECT ID, PRIMARY_PHYSICIAN_ID, PROVIDER_ID FROM RPM_MULTIPLE_PROVIDERS WHERE PATIENT_ID ='martincooper1@collaborate.com';
+
+
+
+
+SELECT USER_ID, EXTERNAL_MEMBER_ID FROM USERS WHERE USER_ID='Leonara@collaborate.com';
+
+
+SELECT USER_ID FROM USERS WHERE USER_ID='Edward@Collaborate.com';
+
+
+UPDATE RPM_MULTIPLE_PROVIDERS SET PRIMARY_PHYSICIAN_ID='zcarenavigator15' WHERE PATIENT_ID='Michael@collaborate.com';
+
+
+
+
+
+UPDATE USERS SET EXTERNAL_MEMBER_ID='AddisonMaya' WHERE USER_ID='AddisonMaya';
+
+
+
+
+UPDATE USERS SET EXTERNAL_MEMBER_ID='2022111700000037' WHERE USER_ID='nicholas';
+
+
+UPDATE `USERS` SET `USERPWD` = '$2a$10$nuVx/zP/Sz/FKZyPSiB9p.zmKOuU7DkFMGEfly5RMkoYzBndzNAmi', `PWDEXPDATE` = '2023-01-18 19:29:30', `STATUS_ID` = 1, PWDCHANGED=1, USEROLDPWD = 'Test', NOOFATTEMPT = 1 WHERE (`USER_ID` = 'Caroline@collaborate.com');
+
+
+UPDATE `USERS` SET `USERPWD` = '$2a$10$6yhPhxQMpB..QwA7McaMwOdGBnIrCGHus5Du9PTP38jQQw.Q/fFde', `PWDEXPDATE` = '2023-01-18 19:29:30', `STATUS_ID` = 1, PWDCHANGED=1, USEROLDPWD = 'Test', NOOFATTEMPT = 1 WHERE (`USER_ID` = 'Caroline@collaborate.com');
+
+
+
+
+
+
+
+SELECT * FROM PATIENT_DEVICES WHERE EXT_DEVICE_ID='80F5B56B2ED9';
+
+SELECT * FROM DOMAIN_SERVICE.END_POINT_DETAILS;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> UPDATE RPM_MULTIPLE_PROVIDERS SET PRIMARY_PHYSICIAN_ID='amyeric1' WHERE PATIENT_ID ='stephenml1@collobarate.com';        Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE RPM_MULTIPLE_PROVIDERS SET PRIMARY_PHYSICIAN_ID='amyeric1' WHERE PATIENT_ID ='jonathankm1@collaborate.com';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+mysql> UPDATE RPM_MULTIPLE_PROVIDERS SET PRIMARY_PHYSICIAN_ID='care_navigator3' WHERE PATIENT_ID='Samuelryan1@collaborate.com';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE RPM_MULTIPLE_PROVIDERS SET PRIMARY_PHYSICIAN_ID='care_navigator3' WHERE PATIENT_ID='jessicaford1@collaborate.com';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 2  Changed: 1  Warnings: 0
+
+mysql> INSERT INTO RPM_MULTIPLE_PROVIDERS(`ID`,`PROVIDER_ID`,`PRIMARY_PHYSICIAN_ID`,`PATIENT_ID`) VALUES(3687,'Vincentjoe1','care_navigator2','jessicaford1@collaborate.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT PRIMARY_PHYSICIAN_ID, PROVIDER_ID FROM RPM_MULTIPLE_PROVIDERS WHERE PATIENT_ID ='sandrasharon1@collaborate.com';
++----------------------+-----------------+
+| PRIMARY_PHYSICIAN_ID | PROVIDER_ID     |
++----------------------+-----------------+
+| care_navigator3      | care_navigator2 |
++----------------------+-----------------+
+1 row in set (0.01 sec)
+
+mysql> INSERT INTO RPM_MULTIPLE_PROVIDERS(`ID`,`PROVIDER_ID`,`PRIMARY_PHYSICIAN_ID`,`PATIENT_ID`) VALUES(3688,'Vincentjoe1','care_navigator2','sandrasharon1@collaborate.com');
+Query OK, 1 row affected (0.01 sec)

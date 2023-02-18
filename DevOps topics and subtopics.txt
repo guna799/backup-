@@ -1,0 +1,62 @@
+1. Linux commands / Shell scripts:
+
+	- Shell script control statements, loops, variables, arrays, command line arguments, enabling flags for executing a shell script
+	- basic linux commands for file operations
+	- linux networking commands such as: telnet, nc (netcat), ping, tcpdump (advanced) etc
+	- process commands such as: top, ps, kill, pkill, nohup, lsof etc
+	- other miscellaneous commands like: sed, awk(advanced), grep, find, diff, ln, sysctl, systemctl etc
+
+2. AWS Cloud: Just explore the fundamentals of the following AWS Cloud Services
+
+	- VPC
+	- EC2
+	- RDS
+	- ElastiCache
+	- S3
+	- EFS
+	- ACM
+	- Route53
+	- CloudWatch
+	- EKS
+
+3. Jenkins:
+
+	- Jenkins GUI with detailed analysis of 'Manage Jenkins' section
+	- Declarative scripting
+	- Use script tag inside Declarative scripting to infuse Groovy Scripts
+	- Plugins like Git, Maven, sshAgent, office365Connector
+
+4. Docker:
+
+	- docker architecture
+	- docker networking concepts
+	- docker volumes
+	- creating docker images with Dockerfile and pushing docker images to Dockerhub
+	- Dockerfile commands
+	- common docker commands like: docker run, docker copy, docker logs, docker exec, docker ps, docker stop, docker rm, docker rmi etc
+
+5. Kubernetes:
+
+	- Kubernetes architecture
+	- writing kubernetes manifest files
+	- Kubernetes pods
+	- Kubernetes services
+	- Kubernetes deployments
+	- Kubernetes Ingress
+
+
+6. Terraform:
+
+	- Terraform providers
+	- Terraform state file
+	- Terraform variables
+	- Terraform scripts to bring up AWS Services like: EC2, RDS, S3
+
+7. Ansible:
+
+	- Ansible master slave architecture
+	- Ansible hosts
+	- Ansible variables
+	- Ansible modules
+	- Ansible tasks
+	- Ansible galaxy and Ansible roles
