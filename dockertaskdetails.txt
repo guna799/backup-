@@ -1,9 +1,98 @@
-    ---challenges for today ---
---------------------------------
+    -$- Challenges for today -$-
+------------------------------------
 
 What is ngnix.?
 How to install ngnix.?
+What is reverse proxy.?
+what is routing ?
 What is virtual host file.?
 How to write virtual configuration with ngnix ?
 What is server block configuration ?
 How to write server block configuration?
+
+
+
+
+
+
+What is NGINX ?
+
+ NGINX (pronounced "engine-x") 
+ is a popular open-source web server and reverse proxy server. It is known for its 
+ high performance, scalability, and reliability, making it a popular choice for 
+ serving static and dynamic web content, as well as for proxying requests to backend servers.
+
+ In addition to its web serving capabilities, NGINX is often used as a reverse proxy server, 
+ which allows it to route requests from clients to backend servers. This makes it useful for 
+ load balancing, caching, and other advanced server configurations.
+
+ NGINX is open-source software, which means that it is available for free and can be modified 
+ and distributed by anyone. It is compatible with many operating systems, including Linux, Unix, 
+ and Windows, and has a large and active community of developers who contribute to its ongoing 
+ development and maintenance.
+
+
+ How to install nginx ?
+    sudo apt-update
+    sudo apt-get install nginx
+    
+    installation was not done properly due to some errors 
+     then i fixed : 
+     sudo apt --fix-broken install 
+     
+     to install nginx :
+     sudo apt-get install nginx
+     sudo systemctl start nginx   -- to start the ngnix
+     sudo systemctl status nginx  -- to get the status of the nginx
+
+what is reverse proxy ?
+    
+    A reverse proxy is a server that sits between client devices and 
+    one or more web servers, acting as an intermediary for client requests. 
+    When a client makes a request to access a web resource, such as a website 
+    or an application, the request is first sent to the reverse proxy server, 
+    which then forwards the request to the appropriate web server. The reverse 
+    proxy server also handles the response from the web server and sends it back 
+    to the client.
+
+    The primary benefit of using a reverse proxy is that it can improve performance, 
+    scalability, and security of a web application. By acting as an intermediary, 
+    it can cache frequently accessed content, distribute traffic across multiple 
+    servers, and provide an additional layer of security by hiding the internal 
+    structure of the web application.
+
+    Reverse proxies are commonly used in large-scale web applications, content delivery 
+    networks, and cloud infrastructure to manage and optimize traffic to web servers.
+
+ What is routing ?
+
+    Routing refers to the process of directing network traffic from one network node to another. 
+    In computer networking, a router is a device that connects multiple networks and is responsible 
+    for routing packets from one network to another.
+
+    When a device on one network wants to communicate with a device on another network, 
+    it sends the data in the form of packets to its default gateway, which is typically a router. 
+    The router examines the packet's destination IP address and checks its routing table to determine 
+    the best path to forward the packet to the next hop. This process is repeated at each hop until 
+    the packet reaches its final destination.
+
+    Routing is a critical function in computer networking as it enables devices 
+    on different networks to communicate with each other. It also helps to 
+    optimize the flow of network traffic and ensure that data is delivered 
+    efficiently and reliably.
+
+    In addition to routing between different networks, routing can also refer to 
+    the process of directing traffic within a single network, such as a local area 
+    network (LAN), using protocols such as the Routing Information Protocol (RIP) 
+    or the Open Shortest Path First (OSPF) protocol.
+
+What is virtualhost file ?
+
+    A virtual host file, also known as a virtual host configuration file, is a file that 
+    defines the settings for a virtual host on a web server. A virtual host is a method of 
+    hosting multiple domain names on a single web server, allowing different websites to share 
+    the same physical resources of the server.
+
+    The virtual host file typically contains the configuration settings for the domain name 
+    associated with the virtual host, including the server name, server alias, document root, 
+    log files, and other settings that are specific to that domain.
