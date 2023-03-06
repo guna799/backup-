@@ -1,0 +1,132 @@
+Kubernetes :
+-------------------------------Kubernetes architecture:--------------
+Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. Its architecture is designed to be highly scalable, fault-tolerant, and extensible.
+
+Here is a high-level overview of the Kubernetes architecture:
+
+Control Plane: The control plane is responsible for managing the overall state of the Kubernetes cluster. It includes several components, such as the API server, etcd, scheduler, and controller manager.
+API Server: The API server is the main entry point for all Kubernetes API requests. It serves as the primary interface for both users and components to interact with the Kubernetes cluster.
+
+etcd: etcd is a distributed key-value store that stores the configuration and state data of the Kubernetes cluster. It provides a highly available and consistent store for all Kubernetes objects.
+
+Scheduler: The scheduler is responsible for scheduling the placement of Pods on Nodes based on their resource requirements and other constraints.
+
+Controller Manager: The controller manager includes several controllers that monitor the state of Kubernetes objects and take action to reconcile them with their desired state.
+
+Nodes: Nodes are the worker machines that run containerized applications. They are responsible for running Pods and managing their associated resources, such as CPU, memory, and storage. Each Node includes several components, such as the kubelet, kube-proxy, and container runtime.
+Kubelet: The kubelet is responsible for managing the state of Pods on a Node. It communicates with the API server to receive Pod definitions and manages the containers running within them.
+
+kube-proxy: The kube-proxy is responsible for routing traffic to the 
+
+---------------------------Manifest files-------------------------
+What are manifest files?
+
+Manifest files are YAML or JSON files that define the desired state of resources in Kubernetes. They are used to create, modify, and delete Kubernetes objects such as pods, services, and deployments.
+
+Terms used in manifest files:
+
+API Version: The version of the Kubernetes API that the manifest file targets.
+
+Kind: The type of Kubernetes object that the manifest file defines (e.g., Pod, Service, Deployment).
+
+Metadata: Information about the Kubernetes object being defined, such as its name, labels, and annotations.
+
+Spec: The desired state of the Kubernetes object being defined, including properties such as the container image, command, and ports.
+
+Selector: A selector is used to select a specific set of resources that a Service or Deployment should target.
+
+Ports: Ports define how traffic is routed to a Service or Pod, including the protocol and port number.
+
+Volume: A volume is a storage resource that can be mounted to a Pod, allowing data to persist across container restarts.
+
+Environment Variables: Environment variables can be defined in a Pod's container to provide configuration or other data to the application running in the container.
+
+Labels: Labels are key-value pairs that are used to organize and select objects in Kubernetes.
+
+Annotations: Annotations are similar to labels, but they provide additional metadata about an object that is not used for selection.
+
+Replica Count: The number of replicas of a Pod or Deployment that should be running at any given time.
+
+Resource Limits: Resource limits can be set on a Pod or Deployment to restrict the amount of CPU and memory that it can consume.
+
+
+-----------------------Pods in k8s:------------------------------
+
+In Kubernetes, a pod is the smallest and simplest unit in the Kubernetes object model. A pod represents a single instance of a running process in a cluster, and it can contain one or more containers that share the same network namespace, storage, and other resources.
+
+Pods provide a way to deploy and manage containerized applications in Kubernetes. When you create a pod, you specify the container images that should be run in the pod, along with any necessary configuration, such as environment variables, volumes, and ports.
+
+Here are some key features of pods in Kubernetes:
+
+Isolation: Each pod runs in its own network namespace and has its own IP address, so the containers running in the pod are isolated from other pods and containers in the cluster.
+
+Resource allocation: Kubernetes allows you to specify resource limits and requests for CPU and memory for each container in the pod, which helps ensure that applications have the resources they need to run effectively.
+
+Liveness and readiness probes: Kubernetes provides liveness and readiness probes that can be used to check the health of the containers running in the pod and determine whether the pod should be restarted or removed from service.
+
+Volume sharing: Pods can share volumes, which allows multiple containers within the same pod to access the same data.
+
+Overall, pods provide a flexible and powerful way to deploy and manage containerized applications in Kubernetes. While pods can be managed directly, they are usually managed through higher-level abstractions such as Deployments or StatefulSets, which provide additional features such as scaling, rolling updates, and self-healing.
+
+---------------------services in k8s:------------------------
+
+In Kubernetes, a service is an abstraction layer that provides a stable, network identity for a set of pods. A service is a Kubernetes resource that acts as a single point of entry for a group of pods that perform the same function, such as a web server or a database.
+
+Services are used to expose pods to other pods within the cluster or to the outside world. When you create a service in Kubernetes, it creates a virtual IP address and DNS name that other pods or services can use to communicate with the pods associated with the service.
+
+There are different types of services in Kubernetes, including:
+
+ClusterIP: This is the default service type and provides a stable IP address and DNS name that is only accessible within the cluster.
+
+NodePort: This service type exposes the pods to the outside world on a specific port of the Kubernetes node.
+
+LoadBalancer: This service type creates a load balancer in a cloud environment and assigns a public IP address to the service.
+
+ExternalName: This service type provides an alias for an external service outside of the Kubernetes cluster.
+
+Overall, services in Kubernetes provide a way to abstract away the details of the underlying pod configuration and provide a stable, network identity for a set of pods. Services are a key component of building scalable and resilient applications in Kubernetes.
+
+ClusterIP: A ClusterIP service exposes a set of pods within the cluster to other objects within the cluster. This is the default service type in Kubernetes. It creates a virtual IP address within the cluster that can be used to access the pods, but it is not accessible from outside the cluster.
+
+NodePort: A NodePort service exposes a set of pods to the outside world by assigning each node in the cluster a port on the node's IP address. It allows incoming traffic to be directed to the pods running on the node.
+
+LoadBalancer: A LoadBalancer service creates a load balancer in a cloud provider's network that distributes incoming traffic to the pods in the service. This type of service is often used when you need to expose a service to the internet.
+
+ExternalName: An ExternalName service maps a service to an external DNS name. It allows you to use a service name within your cluster to access an external service outside the cluster.
+
+---------------------Deployments in k8s ------------------------------
+
+A Kubernetes deployment is a declarative way to manage the rollout and scaling of a set of replicas of a containerized application. Deployments provide a way to ensure that a specified number of replica Pods are running and can manage the rollout of new versions of the application.
+
+When you create a deployment in Kubernetes, you specify the desired state of the deployment. Kubernetes then continuously monitors the current state of the deployment and automatically makes changes to bring the current state closer to the desired state.
+
+Here are some of the key features of a Kubernetes deployment:
+
+Rolling updates: Deployments support rolling updates, which means you can update your application without downtime. Kubernetes updates the replicas one at a time, so the application is still available to users.
+
+Scaling: Deployments support scaling up or down the number of replicas of the application. This allows you to handle changes in traffic or demand.
+
+Rollbacks: If a new version of the application causes issues, Kubernetes allows you to easily roll back to a previous version.
+
+Self-healing: If a replica of the application fails or is unhealthy, Kubernetes will automatically replace it with a new replica.
+
+Overall, Kubernetes deployments provide a powerful and flexible way to manage containerized applications at scale.
+
+
+---------------Ingress in k8s -------------------------------
+
+Ingress is a resource that allows you to manage external access to your cluster's services. An ingress controller is a component that handles incoming traffic from the internet and routes it to the appropriate service within the Kubernetes cluster.
+
+What is an ingress controller ?
+
+it is a k8s component that validates the rules and implements the rules
+
+What is an ingress resource?
+
+it defines rules for how external traffic should be routed to services within the cluster.
+
+How does ingress work?
+
+When an external request comes in, it is first received by the ingress controller. The ingress controller then checks the ingress resource to determine how to route the traffic.
+
+Overall, ingress is a powerful tool for managing external access to services within a Kubernetes cluster. It provides a flexible and scalable way to expose your services to the internet while also providing advanced routing and load balancing capabilities.
