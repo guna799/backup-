@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-html
+data:
+  index.html: |
+    <html>
+    <head>
+      <title>Welcome to nginx!</title>
+    </head>
+    <body>
+      <h1>welcome to our trip</h1>
+      <h1> Hello all !!!! New drvier to our trip  is shalini</h1>
+    </body>
+    </html>
