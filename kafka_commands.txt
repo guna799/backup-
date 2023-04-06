@@ -1,0 +1,12 @@
+to get what is running in 2181 :-- netstat -an | grep 2181
+
+./bin/zookeeper-server-start.sh config/zookeeper.properties  :-- to start zookeeper service 
+./bin/kafka-server-start.sh confi/server.properties    :-- to start kafka service
+
+
+./bin/kafka-console-producer.sh --broker-list localhost:9092 --topic practice               :-- this is producer to send messages
+./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic practice --from-beginning  :-->> this is consumer receving messages
+./bin/kafka-delete-records.sh --bootstrap-server localhost:9092 --topic practice --offset 10    :--> this will delete the message in the kafka topics
+
+
+bin/connect-distributed.sh config/connect-distributed.properties   --> this will install kafka connect .
