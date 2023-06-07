@@ -1,0 +1,90 @@
+CREATE TABLE - creates a new table in the database.
+
+ALTER TABLE - modifies the structure of an existing table, such as adding, deleting or modifying columns.
+
+INSERT INTO - adds new data into the table.
+
+SELECT - retrieves data from the table.
+
+UPDATE - modifies existing data in the table.
+
+DELETE - removes data from the table.
+
+DROP TABLE - deletes the entire table from the database.
+
+TRUNCATE TABLE - removes all data from the table.
+
+INDEXES - creates an index on one or more columns of the table to speed up queries.
+
+CONSTRAINTS - enforces rules and relationships between columns in the table.
+
+JOINS - combines data from two or more tables into a single result set based on a common column.
+
+GROUP BY - groups data based on a specified column and applies aggregate functions to the groups.
+
+ORDER BY - sorts data based on one or more columns.
+
+LIMIT - limits the number of rows returned by a SELECT statement.
+
+UNION - combines the results of two or more SELECT statements into a single result set.
+
+To create database : CREATE DATABASE database_name;
+To use database    : USE database_name;
+To create table    : CREATE TABLE table_name (
+                            column1 datatype,
+                            column2 datatype,
+                            column3 datatype,
+                            );
+
+To alter the structure : ALTER TABLE table_name
+                         ADD column_name datatype;
+
+                        ALTER TABLE table_name
+                        DROP COLUMN column_name;
+
+                        ALTER TABLE table_name
+                        MODIFY COLUMN column_name datatype;
+
+To add new tables into  : INSERT INTO table_name (column1, column2, column3, ...)
+                          VALUES (value1, value2, value3, ...);
+
+To retrive data         : SELECT column1, column2, ...
+                          FROM table_name
+                          WHERE condition;
+
+To MODIFY existing data : UPDATE table_name
+                          SET column_name = new_value
+                          WHERE condition;
+
+To delete table         : DROP TABLE table_name;
+
+To create index         :CREATE INDEX index_name
+                         ON table_name (column_name);
+
+To check the index      :SHOW INDEX FROM table_name;
+                        SELECT COUNT(*) FROM information_schema.statistics WHERE table_name = "table name"
+
+
+To delete database      :DROP DATABASE database_name;
+To update value in table : UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
+
+To check the grant access :  SELECT User, Host, Grant_priv, Super_priv FROM mysql.user;
+
+
+TO CREATE user  : CREATE USER 'myuser'@'%' IDENTIFIED BY 'mypassword';
+
+To grant SELECT to user : GRANT SELECT ON database_name.* TO 'myuser'@'localhost';
+                        : GRANT SELECT ON database_name.* TO 'myuser'@'%';
+                        :GRANT SELECT, INSERT, UPDATE ON database_name.* TO 'myuser'@'localhost';
+                        :GRANT SELECT ON database_name.* TO 'user1'@'localhost', 'user2'@'localhost', 'user3'@'localhost';
+
+                       eg: GRANT SELECT ON COLLABORATE.* TO 'user1'@'localhost';
+
+To list all the users : SELECT User FROM mysql.user;
+                      : SHOW GRANTS FOR 'username'@'localhost';
+                      : SELECT User, Host, Grant_priv, Super_priv FROM mysql.user;
+
+
+To check the permissions of the user:  SHOW GRANTS FOR 'username'@'localhost';
+
+To GRANT all the privilages : GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost';
