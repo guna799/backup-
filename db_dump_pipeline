@@ -1,21 +1,32 @@
 pipeline {
     agent any
     parameters {
+        choice(name: 'ENVIRONMENT', choices: ['DEV', 'QA'], description: 'Select environment')
         string(name: 'schema', defaultValue: 'COLLABORATE', description: 'Enter a Schema you want to take a dump of:')
         string(name: 'file_name', defaultValue: 'COLLABORATE', description: 'Enter a file name you want to save the dump:')
     }
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World'
+                echo 'Hello Welcome to DB_dumps task'
             }
         }
         stage('Mysql-db_dumps') {
             steps {
                 sh "sudo su jenkins"
                 sh "whoami"
+                 when {
+                expression { params.ENVIRONMENT == 'dev' || params.ENVIRONMENT == 'qa' }
+                      }
+            steps {
+                // Perform deployment steps based on selected environment
+                if (params.ENVIRONMENT == 'dev') {
                 sh "mysqldump -u guna -pguna@1432 ${params.schema} > /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
                 sh "7z a /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql.7z /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
+                } else if (params.ENVIRONMENT == 'qa') {
+                   sh "mysqldump -u guna -pguna@1432 ${params.schema} > /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
+                sh "7z a /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql.7z /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
+                }  
             }
         }
         stage('Send Email') {
