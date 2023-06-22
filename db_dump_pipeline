@@ -24,7 +24,7 @@ pipeline {
        stage('Package File') {
             steps {
                 script {
-                    sh 'zip ${params.file_name}.sql.zip /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql'
+                     sh "zip ${params.file_name}.sql.zip /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
                 }
             }
         }
