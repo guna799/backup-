@@ -16,22 +16,23 @@ pipeline {
                     sh "sudo su jenkins"
                     sh "whoami"
                     sh "mysqldump -u guna -pguna@1432 ${params.schema} > /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
-                 //   sh "7z a /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql.7z /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
-                   // sh "mkdir attachment"
-                    //sh "mv ${params.file_name}.sql.7z /var/lib/jenkins/workspace/Db_dumps-task/attachment"
+                    sh "7z a /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql.7z /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
+                    sh "mkdir attachment"
+                    sh "mv ${params.file_name}.sql.7z /var/lib/jenkins/workspace/Db_dumps-task/attachment"
             }
         }
-       stage('Package File') {
+       stage('Archive Folder') {
             steps {
                 script {
-                     sh "zip ${params.file_name}.sql.zip /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
+                    sh 'zip -r archive.zip /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql.7z /var/lib/jenkins/workspace/Db_dumps-task/attachment'
                 }
+                archiveArtifacts artifacts: 'archive.zip', fingerprint: true
             }
         }
         stage('Send Email') {
       steps {
         emailext (  
-                  attachmentsPattern: '${params.file_name}.sql.zip',
+                  attachmentsPattern: 'archive.zip',
                   body: 'Please find the attached file.',
                   subject: 'Email with Attachment',
                   to: 'gunavardhan799@gmail.com',
