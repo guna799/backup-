@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'schema', defaultValue: 'COLLABORATE', description: 'Enter a Schema you want to take a dump of:')
+        string(name: 'file_name', defaultValue: 'COLLABORATE', description: 'Enter a file name you want to save the dump:')
+    }
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Mysql-db_dumps') {
+            steps {
+                sh "sudo su jenkins"
+                sh "whoami"
+                sh "mysqldump -u guna -pguna@1432 ${params.schema} > /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
+                sh "7z a /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql.7z /var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql"
+            }
+        }
+        stage('Send Email') {
+            steps {
+                emailext attachmentsPattern: "/var/lib/jenkins/workspace/Db_dumps-task/${params.file_name}.sql.7z",
+                          body: 'Please find the attached file.',
+                          subject: 'Email with Attachment',
+                          to: 'gunavardhan799@gmail.com',
+                          from: 'gunavardhanm@infinite.com',
+                          attachLog: true
+            }
+        }
+    }
+}
