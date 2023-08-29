@@ -1,0 +1,75 @@
+[12:54] Aishwarya Balu
+
+FROM alpine:latest
+
+ 
+
+# Set environment variables
+
+ENV KAFKA_HOME=/opt/kafka
+
+ 
+
+# Install Java 11 (OpenJDK) and other required tools
+
+RUN apk add --no-cache openjdk11 bash
+
+ 
+
+# Create Kafka config directory
+
+RUN mkdir -p $KAFKA_HOME/config
+
+ 
+
+# Copy Kafka files and configurations
+
+COPY kafka_2.13-2.8.1 $KAFKA_HOME
+
+COPY start-kafka.sh $KAFKA_HOME
+
+ 
+
+# Set the working directory
+
+WORKDIR $KAFKA_HOME
+
+ 
+
+# Run a shell script to set environment variables and start Kafka
+
+CMD ["bash", "start-kafka.sh"]
+
+
+
+
+
+
+
+[12:54] Aishwarya Balu
+
+start-kafka.sh file:    #!/bin/bash
+
+ 
+
+# Set Kafka environment variables using export
+
+export KAFKA_OPTS="-Djava.security.auth.login.config=$KAFKA_HOME/config/test_user_jaas.conf"
+
+ 
+
+# Start ZooKeeper
+
+$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties &
+
+ 
+
+# Wait for ZooKeeper to start
+
+sleep 10
+
+ 
+
+# Start Kafka
+
+$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
