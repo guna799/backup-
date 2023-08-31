@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: debezium-connector-config
+data:
+  connector.properties: |
+    name=kafka-connector
+    connector.class=io.debezium.connector.mysql.MySqlConnector
+    tasks.max=1
+    database.hostname=127.0.0.1
+    database.port=3306
+    database.user=guna
+    database.password=guna@1432
+    database.include.list=collaborate
+    database.history.kafka.bootstrap.servers=kafka-svc:9092
+    database.history.kafka.topic=dbhistory.collaborate.kafka
+    include.schema.changes=true
+    database.server.id=5767
+    database.server.name=test-server
+    database.allowPublicKeyRetrieval=true
+    auto.create.topics.enable=true
+    topic.creation.enable=true
+    topic.prefix=CN
+    database.whitelist=collaborate
+    topic.creation.default.partitions=3
+    topic.creation.default.cleanup.policy=compact
+    topic.creation.default.replication.factor=2
+    table.include.list=collaborate.kafka
+    schema.history.internal.kafka.topic=collaborate.kafka
+    schema.history.internal.kafka.bootstrap.servers=kafka-svc:9092
+    snapshot.mode=schema_only
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debezium-connector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: debezium-connector
+  template:
+    metadata:
+      labels:
+        app: debezium-connector
+    spec:
+      containers:
+        - name: debezium-connector
+          image: guna799/custom-debezium-connect:1.7
+          env:
+            - name: DEBEZIUM_HOME
+              value: /kafka/data/debezium
+          volumeMounts:
+            - name: config-volume
+              mountPath: /kafka/data/debezium
+      volumes:
+        - name: config-volume
+          configMap:
+            name: debezium-connector-config
+            items:
+              - key: connector.properties
+                path: connector.properties
